@@ -1,0 +1,1 @@
+select suppliers.supplier_name as Company, a.product_name as Product, a.unit_price as Price from public."suppliers" inner join public."product" a on suppliers.supplier_id=a.supplier_id where not exists (select b.unit_price from public."product" b where a.supplier_id=b.supplier_id and b.unit_price>a.unit_price) order by 3 DESC, 2, 1;
