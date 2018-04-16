@@ -1,1 +1,1 @@
-select supplier_name as Company, count(product_name) as NumberOfProducts from public."suppliers" group by supplier_name having count(product_name)=5 order by 1; 
+select companyname as Company, count(products.productname) as NumberOfProducts from suppliers inner join products on suppliers.supplierid = products.supplierid group by companyname having count(products.productname)=5 order by 1; 
